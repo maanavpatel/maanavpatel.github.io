@@ -150,6 +150,9 @@ b {
   #main {
     margin-left: 100px;
   }
+  .main {
+    margin-left:50% + 100px
+  }
 }
 /*--------------------------------------------------------------
 # Navigation Menu
