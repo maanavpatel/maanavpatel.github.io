@@ -1,209 +1,808 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maanav Patel - Software Developer & Product Leader</title>
+    <meta name="description" content="Portfolio of Maanav Patel - Software Developer specializing in scalable systems, AI integration, and user-focused solutions.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <title>Maanav Patel</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0c1e3d 0%, #1e293b 50%, #0c1e3d 100%);
+            color: white;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-  <!-- Favicons -->
-  <link href="favicon_io/android-chrome-512x512.png" rel="icon">
+        .background-orb {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(96, 165, 250, 0.3);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/darkmode.css" rel="stylesheet">
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border-radius: 1.5rem;
+        }
 
-  <!-- Jquery script -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        .glass-card-hover {
+            transition: all 0.3s ease;
+        }
 
+        .glass-card-hover:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px 0 rgba(59, 130, 246, 0.2);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        nav .container {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #60a5fa, #93c5fd, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        nav a.active {
+            color: #60a5fa;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #60a5fa, #22d3ee);
+        }
+
+        .container {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 1rem 1.5rem;
+        }
+
+        .hero {
+            padding-top: 8rem;
+            padding-bottom: 2rem;
+        }
+
+        .hero-card {
+            position: relative;
+            overflow: hidden;
+            padding: 3rem;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, #60a5fa, #93c5fd, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.875rem;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            max-width: 42rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #94a3b8;
+            flex-wrap: wrap;
+        }
+
+        .chevron-down {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h3.section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h3.section-title span {
+            background: linear-gradient(90deg, #60a5fa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .experience-card, .education-card {
+            position: relative;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .experience-card::before, .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #60a5fa, #2563eb);
+            border-radius: 2px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+        }
+
+        .card-meta {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        .card-date {
+            color: #93c5fd;
+            text-align: right;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-card li {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: #cbd5e1;
+            transition: color 0.3s ease;
+        }
+
+        .experience-card li:hover {
+            color: white;
+        }
+
+        .experience-card li::before {
+            content: '▹';
+            color: #60a5fa;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .experience-card strong {
+            color: #93c5fd;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skills-card {
+            padding: 2rem;
+        }
+
+        .skills-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #60a5fa;
+        }
+
+        .skills-card h4::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 0.5rem;
+            color: #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 3rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .footer-card {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-card p:first-child {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icon {
+            padding: 1rem;
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 0.75rem;
+            color: #cbd5e1;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .social-icon:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .icon-lg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.5rem;
+            }
+
+            nav .nav-links {
+                gap: 1rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+            }
+
+            .card-date {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
-
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex flex-column justify-content-center">
-
-    <nav id="navbar" class="navbar nav-menu">
-      <ul>
-        <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-        <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-        <!-- <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
-        <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
-        <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-      </ul>
-    </nav><!-- .nav-menu -->
-
-  </header>
-
-
 <body>
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Maanav Patel</h1>
-      <p><small>Software Developer @ Epic</small></p>
-      <p>I'm a <span class="typed" data-typed-items="Engineer, Photographer, Designer, Student, Car Enthusiast, Videographer, Foodie, DJ"></span>.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/maanavp/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://github.com/maanavpatel" class="github"><i class="bx bxl-github"></i></a>
-        <a href="https://www.facebook.com/maanav.patel18/" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/maanavp18/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
+    <!-- Background elements -->
+    <div class="background-orb" id="backgroundOrb"></div>
+    <div class="particles" id="particles"></div>
 
-      </div>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-        <div class="row"> 
-
-          <div class="section-title">
-            <h2>About</h2>
-        </div>
-
-        <div class="row g-1">
-          <div class="col-lg-12" >
-            <img id="profile-pic" class="center" src="favicon_io/android-chrome-512x512.png" alt="Maanav Patel" >
-          </div>
-          <!-- <div class="col-lg-8 card">
-            <p id="about-text">
-              My story will be told here. My story will be told here. My story will be told here.My story will be told here.My story will be told hereMy story will be told hereMy story will be told here.My story will be told hereMy story will be told hereMy story will be told hereMy story will be told hereMy story will be told here
-            </p>
-            <script>
-              // document.getElementById("about-text").load('./assets/txt/aboutme.txt');
-            </script>
-          </div> -->
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-md-6 pt-4 pt-md-0 content">
-            <h3>Software Developer &amp; Creator</h3>
-            <p class="fst-italic">
-              Enthusiastic Software Engineer with over 4 years of corporate experience. <br>
-              Knowledgeable in a wide range of development languages and technologies. 
-              Experienced in Agile workflows and SDLC. 
-            </p>
-
-            <!-- <p>
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque. Aliquid amet quidem ut quaerat cupiditate. Ab et eum qui repellendus omnis culpa magni laudantium dolores.
-            </p> -->
-          </div>
-
-          <div class="col-md-6 mt-5 content ">
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Madison, WI</span></li>
-              <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>B.S Statistics & Computer Science (Grad: Dec. 2022)</span></li>
-            </ul>
-          </div>
- 
-        </div>
-
-      </div>
-    </section><!-- End About Section -->
-
-    <section id="resume" class="resume">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12" style="background-color:white; width: 100%; min-height: 100%; border-radius: 5px;">
-            <object data="MaanavPatel.pdf" type="application/pdf" width="100%" height="500px"> 
-            </object>
-          </div>
-          <div class="col-lg-4 col-xs-12 center">
-            <a class="btn mt-2" style="display:block; background-color: #5c86d0; margin-left: auto; margin-right:auto;" href="MaanavPatel.pdf">Download<i class="far fa-file"></i></a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-        </div>
-
-        <div class="row mt-1">
-          <div class="email info" style="width:100%">
-            <div class="row">
-              <a href="mailto:maanavpatel18@gmail.com"><i class="bi bi-envelope center"></i></a>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>MP</h1>
+            <div class="nav-links">
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <!-- resume link: opens PDF in a new tab -->
+                <a href="Maanav Patel - Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">Resume</a>
             </div>
-            <div class="row">
-              <div class="col-lg-12">
+        </div>
+    </nav>
 
-                <div class="mt-2" style="width:100%; margin-left: auto; margin-right: auto; text-align: center;">
-                  <a href="mailto:maanavpatel18@gmail.com" class="mt-2" style="width:100%; margin-left: auto; margin-right: auto;">maanav.patel18@gmail.com </a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="glass-card hero-card">
+                <div class="hero-content">
+                    <h2>Maanav Patel</h2>
+                    <p class="subtitle">Bridging Product, Engineering, and Business Strategy</p>
+                    <p class="description">
+                        Building scalable systems and user-focused solutions across web, mobile, and TV platforms. 
+                        Passionate about AI integration, performance optimization, and creating accessible experiences.
+                    </p>
+                    <div class="button-group">
+                        <a href="mailto:maanav.patel18@gmail.com" class="btn btn-primary">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            Contact Me
+                        </a>
+                        <a href="https://linkedin.com/in/maanavp/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="/resume/Maanav_Patel_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            <svg class="icon" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v8m0 0l3-3m-3 3l-3-3M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/>
+                            </svg>
+                            Resume
+                        </a>
+                    </div>
+                    <div class="contact-info">
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <svg class="icon" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Illinois</span>
+                        </div>
+                        <span>•</span>
+                        <span>309-533-3881</span>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-
+            <div class="chevron-down">
+                <svg width="32" height="32" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </div>
         </div>
+    </section>
 
-
-      </div>
-    </section><!-- End Contact Section -->
-
-    <footer id="footer">
-      <div class="container">
-        <h1>More coming soon...</h3>
-        <p>Be sure to check back ;)</p>
-        <div class="social-links">
-         <a href="https://www.linkedin.com/in/maanavpatel/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/maanavpatel" class="github"><i class="bx bxl-github"></i></a>
-          <a href="https://www.facebook.com/maanav.patel18/" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/maanavp18/?hl=en" class="instagram"><i class="bx bxl-instagram"></i></a>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="glass-card" style="padding: 2.5rem;">
+                <h3 class="section-title">
+                    <svg class="icon-lg" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                    </svg>
+                    <span>About Me</span>
+                </h3>
+                <p style="font-size: 1.125rem; color: #cbd5e1; line-height: 1.8;">
+                    Software engineer with over three years of technical expertise and product leadership experience. 
+                    I specialize in architecting systems, optimizing performance, and delivering user-focused solutions 
+                    that make a real impact. My work spans healthcare technology, industrial systems, and insurance 
+                    platforms, where I've led AI initiatives, improved patient care workflows, and built tools that 
+                    save teams hundreds of hours.
+                </p>
+            </div>
         </div>
-      </div>
-    </footer><!-- End Footer -->
-  
-  </main><!-- End #main -->
-  <!-- ======= Footer ======= -->
+    </section>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h3 class="section-title">
+                <svg class="icon-lg" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+                </svg>
+                <span>Education</span>
+            </h3>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+            <div class="glass-card glass-card-hover education-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">University of Illinois</div>
+                        <div class="card-subtitle">B.S. Statistics and Computer Science</div>
+                        <div class="card-meta">Minor in Business</div>
+                    </div>
+                    <div class="card-date">
+                        <div style="color: #93c5fd; margin-bottom: 0.25rem;">Aug 2019 – Dec 2022</div>
+                        <div>Urbana-Champaign</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h3 class="section-title">
+                <svg class="icon-lg" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <span>Professional Experience</span>
+            </h3>
 
+            <!-- Epic Systems -->
+            <div class="glass-card glass-card-hover experience-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">Epic Systems</div>
+                        <div class="card-subtitle">Software Developer</div>
+                        <div class="card-meta">MyChart | Bedside TV</div>
+                    </div>
+                    <div class="card-date">
+                        <div style="color: #93c5fd; margin-bottom: 0.25rem;">Feb 2023 – Jun 2025</div>
+                        <div>Verona, WI</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Appointed as <strong>AI lead</strong>, coordinating across engineering and product teams to evaluate and integrate AI tools, identify automation opportunities, and implement workflow improvements</li>
+                    <li>Partnered with hospital systems nationwide to design, implement, and support complex software deployments, participating in pre-sales discussions and leading product demos</li>
+                    <li>Developed and optimized real-time two-way video calling for patient bedside TV, <strong>reducing patient response times from over 5 minutes to under 30 seconds</strong></li>
+                    <li>Spearheaded integration of Bedside TV within hospital IT environments, driving a <strong>40% increase in adoption</strong></li>
+                    <li>Built internal tooling that <strong>reduced mobile device setup time by 80%</strong>, saving 20 hours per week</li>
+                </ul>
+            </div>
+
+            <!-- Solar Turbines -->
+            <div class="glass-card glass-card-hover experience-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title" style="color: #22d3ee;">Solar Turbines</div>
+                        <div class="card-subtitle">Software Engineer Intern</div>
+                        <div class="card-meta">Plant Visualization Team</div>
+                    </div>
+                    <div class="card-date">
+                        <div style="color: #22d3ee; margin-bottom: 0.25rem;">May 2022 – Aug 2022</div>
+                        <div>San Diego, CA</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed custom workspace management tool in JavaScript, <strong>reducing setup time by 75%</strong></li>
+                    <li>Implemented dynamic navigation functionality in C# to enhance user experience and operational efficiency</li>
+                    <li>Led UI modernization initiative using Figma and Bootstrap for machinery control systems</li>
+                </ul>
+            </div>
+
+            <!-- State Farm -->
+            <div class="glass-card glass-card-hover experience-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">State Farm</div>
+                        <div class="card-subtitle">Software Engineer Intern</div>
+                        <div class="card-meta">Research and Development Center</div>
+                    </div>
+                    <div class="card-date">
+                        <div style="color: #93c5fd; margin-bottom: 0.25rem;">Aug 2019 – Dec 2022</div>
+                        <div>Champaign, IL</div>
+                    </div>
+                </div>
+                <ul>
+                    <li>Led development of digital assistant for insurance agents, coordinating cross-functional teams</li>
+                    <li>Developed ML models for ServiceNow ticket classification with <strong>82% accuracy</strong></li>
+                    <li>Refactored backend services, <strong>improving response times by 50%</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h3 class="section-title">
+                <svg class="icon-lg" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+                <span>Technical Skills</span>
+            </h3>
+
+            <div class="skills-grid">
+                <div class="glass-card skills-card">
+                    <h4>Languages</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="glass-card skills-card">
+                    <h4 style="color: #22d3ee;">Frameworks & Tools</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Android</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Redux</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">NoSQL</span>
+                        <span class="skill-tag">WCAG</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card skills-card" style="margin-top: 1.5rem;">
+                <h4 style="color: #93c5fd;">Core Strengths</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag">Cross-functional Collaboration</span>
+                    <span class="skill-tag">API & Ecosystem Architecture</span>
+                    <span class="skill-tag">Scalable Systems Development</span>
+                    <span class="skill-tag">UX & Accessibility Design</span>
+                    <span class="skill-tag">Data-driven Decision Making</span>
+                    <span class="skill-tag">Quality Assurance</span>
+                    <span class="skill-tag">AI-assisted Development</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="glass-card footer-card">
+                <p>Let's build something amazing together</p>
+                <div class="social-links">
+                    <a href="mailto:maanav.patel18@gmail.com" class="social-icon">
+                        <svg class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/maanavp/" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <svg class="icon-lg" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="copyright">© 2024 Maanav Patel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDuration = (5 + Math.random() * 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Mouse tracking for background orb
+        const backgroundOrb = document.getElementById('backgroundOrb');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            backgroundOrb.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(59, 130, 246, 0.15), transparent 40%)`;
+            backgroundOrb.style.opacity = '1';
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
