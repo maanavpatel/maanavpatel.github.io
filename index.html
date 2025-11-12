@@ -14,7 +14,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0c1e3d 0%, #1e293b 50%, #0c1e3d 100%);
+            background: linear-gradient(135deg, #0c1e3d 0%, #1e293b 50%, #8b6a52 100%);
             color: white;
             overflow-x: hidden;
             line-height: 1.6;
@@ -25,7 +25,9 @@
             inset: 0;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            /* longer, smoother fade-out */
+            transition: opacity 0.9s cubic-bezier(.2,.8,.2,1);
+            will-change: opacity;
         }
 
         .particles {
@@ -37,9 +39,9 @@
 
         .particle {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(96, 165, 250, 0.3);
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.779);
             border-radius: 50%;
             animation: float linear infinite;
         }
@@ -50,9 +52,9 @@
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(148, 163, 184, 0.1);
+            background: rgba(49, 64, 87, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(179, 182, 186, 0.194);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             border-radius: 1.5rem;
         }
@@ -62,7 +64,7 @@
         }
 
         .glass-card-hover:hover {
-            background: rgba(30, 41, 59, 0.6);
+            background: rgba(45, 66, 95, 0.418);
             border: 1px solid rgba(59, 130, 246, 0.3);
             transform: translateY(-2px);
             box-shadow: 0 12px 48px 0 rgba(59, 130, 246, 0.2);
@@ -158,7 +160,7 @@
             font-weight: bold;
             background: linear-gradient(90deg, #60a5fa, #93c5fd, #22d3ee);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: #e2f2ff;
             background-clip: text;
             margin-bottom: 1rem;
         }
@@ -309,15 +311,20 @@
         }
 
         .experience-card li {
-            display: flex;
-            gap: 0.75rem;
+            display: block;
+            padding-left: 1.25rem; /* space for the custom bullet */
+           gap: 0.75rem;
             margin-bottom: 0.75rem;
             color: #cbd5e1;
-            transition: color 0.3s ease;
-        }
+            transition: color 0.3s ease, transform 0.25s ease;
+            word-break: break-word;
+       }
 
         .experience-card li:hover {
             color: white;
+            /* increase size by a bit like a grow effect and smooth */
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
         }
 
         .experience-card li::before {
@@ -325,10 +332,14 @@
             color: #60a5fa;
             flex-shrink: 0;
             margin-top: 0.25rem;
+            margin-right: 0.5rem;
         }
 
         .experience-card strong {
             color: #93c5fd;
+            font-weight: 600;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .skills-grid {
@@ -479,11 +490,9 @@
             <h1>MP</h1>
             <div class="nav-links">
                 <a href="#about" class="nav-link active">About</a>
+                <a href="#education" class="nav-link">Education</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#skills" class="nav-link">Skills</a>
-                <a href="#education" class="nav-link">Education</a>
-                <!-- resume link: opens PDF in a new tab -->
-                <a href="Maanav Patel - Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">Resume</a>
             </div>
         </div>
     </nav>
@@ -491,7 +500,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="glass-card hero-card">
+            <div class="glass-card glass-card-hover hero-card">
                 <div class="hero-content">
                     <h2>Maanav Patel</h2>
                     <p class="subtitle">Bridging Product, Engineering, and Business Strategy</p>
@@ -512,7 +521,7 @@
                             </svg>
                             LinkedIn
                         </a>
-                        <a href="/resume/Maanav_Patel_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                        <a href="Maanav Patel - Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                             <svg class="icon" fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v8m0 0l3-3m-3 3l-3-3M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/>
                             </svg>
@@ -527,8 +536,6 @@
                             </svg>
                             <span>Illinois</span>
                         </div>
-                        <span>•</span>
-                        <span>309-533-3881</span>
                     </div>
                 </div>
             </div>
@@ -748,7 +755,7 @@
     <script>
         // Create floating particles
         const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 200; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             particle.style.left = Math.random() * 100 + '%';
@@ -757,15 +764,63 @@
             particle.style.animationDelay = Math.random() * 5 + 's';
             particlesContainer.appendChild(particle);
         }
+        // Larger particles that move like shooting stars
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDuration = (3 + Math.random() * 7) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            // move further
+            particle.style.transform = `translate(${Math.random() * 100}px, ${Math.random() * 100}px)`;
+            particle.style.width = '6px';
+            particle.style.height = '6px';
+            particlesContainer.appendChild(particle);
+        }
 
         // Mouse tracking for background orb
         const backgroundOrb = document.getElementById('backgroundOrb');
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
+        let orbHideTimeout = null;
+
+        function showOrbAt(x, y) {
             backgroundOrb.style.background = `radial-gradient(600px circle at ${x}px ${y}px, rgba(59, 130, 246, 0.15), transparent 40%)`;
             backgroundOrb.style.opacity = '1';
-        });
+            // reset auto-hide timer
+            if (orbHideTimeout) clearTimeout(orbHideTimeout);
+            // keep orb visible briefly, then start fade (CSS handles the fade duration)
+            orbHideTimeout = setTimeout(() => {
+                backgroundOrb.style.opacity = '0';
+            }, 1200);
+        }
+
+        // desktop mouse
+        document.addEventListener('mousemove', (e) => {
+            showOrbAt(e.clientX, e.clientY);
+        }, { passive: true });
+
+        // pointer events (covers many pointer-capable devices)
+        document.addEventListener('pointermove', (e) => {
+            if (e.pointerType) showOrbAt(e.clientX, e.clientY);
+        }, { passive: true });
+
+        // touch events for mobile
+        document.addEventListener('touchstart', (e) => {
+            const t = e.touches[0];
+            if (t) showOrbAt(t.clientX, t.clientY);
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            const t = e.touches[0];
+            if (t) showOrbAt(t.clientX, t.clientY);
+        }, { passive: true });
+
+        // ensure orb hides shortly after touch ends
+        document.addEventListener('touchend', () => {
+            if (orbHideTimeout) clearTimeout(orbHideTimeout);
+            // start fade shortly after touch ends; CSS will animate opacity to 0 over 0.9s
+            orbHideTimeout = setTimeout(() => backgroundOrb.style.opacity = '0', 400);
+        }, { passive: true });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('.nav-link').forEach(link => {
